@@ -1,52 +1,71 @@
 import React, { useState } from "react";
-import { Today, Card } from "./card";
-import SearchForm from "./searchForm";
-import {useFetchWeather, useFetchForecast} from "./useFetch";
+import { Card, Today } from "./card";
 
+export const SearchForm = () => {
+  const [searchCity, setSearchCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
 
-export const Fetch = () => {
-  const [city, setCity] = useState("");
-
-  function getCity(search) {
-    setCity(search);
-  }
-
-  function createForecast(hourlyForecast) {
+  function createForecast(hourlyForecast, i) {
     return (
       <Card
         icon={hourlyForecast.weather[0].icon}
         dt={hourlyForecast.dt_txt}
         temp={hourlyForecast.main.temp}
         pop={hourlyForecast.pop}
+        key={i}
       />
     );
   }
 
-  const { weather, weatherLoading } = useFetchWeather(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_APIKEY}&units=metric`
+
+  function handleSubmit(e) {
+    const API = process.env.REACT_APP_APIKEY;
+    e.preventDefault();
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${API}&units=metric`
+    )
+      .then((response) => response.json())
+      .then((y) => setWeather(y));
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=${API}&units=metric`
+    )
+      .then((response) => response.json())
+      .then((y) => setForecast(y));
+  }
+
+  return (
+    <div className="searchDiv">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          onChange={(e) => setSearchCity(e.target.value)}
+        ></input>
+        <button type="submit">Search</button>
+      </form>
+
+      {weather !== null ? (
+        <Today place={weather.name} country={weather.sys.country} icon={weather.weather[0].icon} currentTemp={weather.main.temp} description={weather.weather[0].description}/>
+      ) : (
+        <p>No Data Yet</p>
+      )}
+      {forecast !== null ? (
+         <div className="card-container"> {forecast.list.map(createForecast)} </div>
+      ) : (
+        <p>No Data Yet</p>
+      )}
+    </div>
   );
-  const { forecast, forecastLoading } = useFetchForecast(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_APIKEY}&units=metric`
-  );
+};
+
+export const Fetch = () => {
+
+
   return (
     <>
-      <SearchForm getCity={getCity} />
-
-      {weatherLoading === true ? (
-        <span></span>
-      ) : (
-        <Today
-          place={weather.name}
-          country={weather.sys.country}
-          currentTemp={weather.main.temp}
-          icon={weather.weather[0].icon}
-          description={weather.weather[0].description}
-        />
-      )}
-
-      <div className="card-container">
-        {forecastLoading === true ? <p>Search for your city name Here</p> : forecast.list.map(createForecast)}
-      </div>
+      <SearchForm />
     </>
   );
 };
