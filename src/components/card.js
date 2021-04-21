@@ -28,7 +28,7 @@ export const Card = (props) => {
       <p>{props.dt.slice(5, 10)}</p>
       <p>{props.dt.slice(11, 16)}</p>
       <p>{Math.round(props.temp)}°C</p>
-      <p>降水{Math.round(props.pop * 100)}%</p>
+      <p>Rain:{Math.round(props.pop * 100)}%</p>
     </div>
   );
 };
