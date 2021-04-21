@@ -45,8 +45,9 @@ export const SearchForm = () => {
           type="text"
           onChange={(e) => setSearchCity(e.target.value)}
           value={searchCity}
+          className={styles.searchTerm}
         ></input>
-        <button type="submit" className={styles.btn}>Search</button>
+        <button type="submit" className={styles.searchButton}>Search</button>
         <br />
         <input
           name="degrees"
