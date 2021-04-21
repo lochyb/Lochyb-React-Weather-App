@@ -1,13 +1,14 @@
+import {Fetch} from './components/fetch'
+import {Footer} from './components/Footer'
 
 import './App.css';
-import {Fetch} from './components/fetch'
-
 function App() {
   return (
-    <div>
+    <>
     <Fetch />
+    <Footer />
     
-    </div>
+    </>
     
   );
 }

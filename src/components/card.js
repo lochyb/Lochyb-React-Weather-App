@@ -1,6 +1,8 @@
 import React from "react";
+// import styled, { css } from 'styled-components'
 
 export const Today = (props) => {
+
   return (
     <div className="todayDiv">
       <h3>
