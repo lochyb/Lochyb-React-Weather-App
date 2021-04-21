@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Card, Today } from "./card";
+import styles from "./search.module.css"
+
 
 export const SearchForm = () => {
   const [searchCity, setSearchCity] = useState("");
@@ -44,7 +46,7 @@ export const SearchForm = () => {
           onChange={(e) => setSearchCity(e.target.value)}
           value={searchCity}
         ></input>
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.btn}>Search</button>
         <br />
         <input
           name="degrees"
