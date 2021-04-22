@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Card, Today } from "./card";
-<<<<<<< HEAD
-import styles from "./search.module.css"
-=======
 import styles from "./fetch.module.css";
->>>>>>> d0c1a32cb697dd3c16fd1f5088317424762f6bd8
 
 
 export const SearchForm = () => {
@@ -50,17 +46,12 @@ export const SearchForm = () => {
           onChange={(e) => setSearchCity(e.target.value)}
           value={searchCity}
           className={styles.searchTerm}
-<<<<<<< HEAD
-        ></input>
-        <button type="submit" className={styles.searchButton}>Search</button>
-=======
           placeholder="Search City Here"
         ></input>
         <button
         type="submit"
         className={styles.searchButton}
         >Search</button>
->>>>>>> d0c1a32cb697dd3c16fd1f5088317424762f6bd8
         <br />
         <input
           name="degrees"
@@ -82,24 +73,20 @@ export const SearchForm = () => {
         <label for="fahrenheit">Fahrenheit</label>
       </form>
 
-      {weather !== null ? (
-        <Today
+      {weather !== null && (<Today
           place={weather.name}
           country={weather.sys.country}
           icon={weather.weather[0].icon}
           currentTemp={weather.main.temp}
           description={weather.weather[0].description}
         />
-      ) : (
-        <p>No Data Yet</p>
-      )}
-      {forecast !== null ? (
+      )  
+      }
+      {forecast !== null && (
         <div className="card-container">
           {" "}
           {forecast.list.map(createForecast)}{" "}
         </div>
-      ) : (
-        <p>No Data Yet</p>
       )}
     </div>
   );
