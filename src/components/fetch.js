@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Card, Today } from "./card";
+import styles from "./fetch.module.css";
+
 
 export const SearchForm = () => {
   const [searchCity, setSearchCity] = useState("");
@@ -37,14 +39,19 @@ export const SearchForm = () => {
   }
 
   return (
-    <div className="searchDiv">
+    <div className={styles.wrap}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           onChange={(e) => setSearchCity(e.target.value)}
           value={searchCity}
+          className={styles.searchTerm}
+          placeholder="Search City Here"
         ></input>
-        <button type="submit">Search</button>
+        <button
+        type="submit"
+        className={styles.searchButton}
+        >Search</button>
         <br />
         <input
           name="degrees"

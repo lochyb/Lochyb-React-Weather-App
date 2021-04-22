@@ -1,10 +1,10 @@
 import React from "react";
-// import styled, { css } from 'styled-components'
+import styles from "./card.module.css"
 
 export const Today = (props) => {
 
   return (
-    <div className="todayDiv">
+    <div className={styles.todayDiv}>
       <h3>
         {props.place}, {props.country}
       </h3>
@@ -20,7 +20,7 @@ export const Today = (props) => {
 
 export const Card = (props) => {
   return (
-    <div className="card">
+    <div className={styles.card}>
       <img
         src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
         alt="icon"
