@@ -1,57 +1,24 @@
-.App {
+#root {
+  display: grid;
+  place-items: center;
   text-align: center;
-}
-
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-body{
+body {
   background-color: rgb(0, 86, 97);
   color: white;
 }
 
-.searchDiv{
-  text-align: center;
-  margin: 2rem auto;
-  
-}
+/* ////////////////////////////////////////////// */
 
-
-.todayDiv{
-  text-align: center;
+img {
+  width: fit-content;
+  align-items: center;
   margin: auto;
-}
-
-.todayDiv p{
-  display: inline-flex;
-  font-size: 2rem;
-  text-align: center;
-}
-
-
-/* Card Specific CSS */
-
-::-webkit-scrollbar{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb{
-  background:transparent
 }
 .card-container{
-  margin: auto;
+  margin: 1rem auto;
   display: flex;
   padding: 1rem;
   overflow: auto;
@@ -59,21 +26,3 @@ body{
   white-space: nowrap;
   text-align: center;
 }
-
-
-.card{
-  place-content: center;
-  margin: 0.5rem;
-  
-  min-width: 10ch;
-  background-color: rgb(35,38,47,1);
-
-}
-/* ////////////////////////////////////////////// */
-
-img{
-  width: fit-content;
-  align-items: center;
-  margin: auto;
-}
-
