@@ -41,6 +41,7 @@ export const SearchForm = () => {
   return (
     <div className={styles.wrap}>
     <h1>Weather App</h1>
+     <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -73,7 +74,7 @@ export const SearchForm = () => {
         ></input>
         <label for="fahrenheit">Fahrenheit</label>
       </form>
-
+</div>
       {weather !== null && (<Today
           place={weather.name}
           country={weather.sys.country}

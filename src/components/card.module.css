@@ -1,60 +1,39 @@
-  /* {
-    width: auto;
-    border: 3px solid #00B4CC;
-    border-right: none;
-    padding: 5px;
-    margin: 1rem 0 1rem;
-    height: 20px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-  }
-  
-  {
-    height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-  } */
-  .todayDiv{
-    text-align: center;
-    margin: 1rem auto;
-    background-color: rgb(35,38,47,0.7);
-    border-radius: 1rem;
-    padding: 1rem 2rem;
-    display:grid;
+:root {
+  --mainBackground: rgb(99, 97, 112);
+}
+.todayDiv {
+  text-align: center;
+  margin: 1rem auto;
+  background-color: var(--mainBackground);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: grid;
+}
 
-  }
-  
-  .todayDiv p{
-    display: inline-flex;
-    font-size: 2rem;
-    text-align: center;
-  }
-  
-  .middle{
-    display: inline-flex;
-  }
-  
-  /* Card Specific CSS */
-  
-  ::-webkit-scrollbar{
-    background:transparent;
-  }
-  ::-webkit-scrollbar-thumb{
-    background:transparent
-  }
+.todayDiv p {
+  display: inline-flex;
+  font-size: 2rem;
+  text-align: center;
+}
 
-  
-  
-  .card{
-    place-content: center;
-    margin: 0.5rem;
-    border-radius: 1rem;
-    min-width: 10ch;
-    background-color: rgb(35,38,47,1);
-  
-  }
+.middle {
+  display: inline-flex;
+}
+
+/* Card Specific CSS */
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.card {
+  place-content: center;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  min-width: 10ch;
+  background-color: var(--mainBackground);
+  color: white;
+}
