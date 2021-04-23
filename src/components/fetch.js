@@ -40,6 +40,7 @@ export const SearchForm = () => {
 
   return (
     <div className={styles.wrap}>
+    <h1>Weather App</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
