@@ -74,24 +74,20 @@ export const SearchForm = () => {
         <label for="fahrenheit">Fahrenheit</label>
       </form>
 
-      {weather !== null ? (
-        <Today
+      {weather !== null && (<Today
           place={weather.name}
           country={weather.sys.country}
           icon={weather.weather[0].icon}
           currentTemp={weather.main.temp}
           description={weather.weather[0].description}
         />
-      ) : (
-        <p>No Data Yet</p>
-      )}
-      {forecast !== null ? (
+      )  
+      }
+      {forecast !== null && (
         <div className="card-container">
           {" "}
           {forecast.list.map(createForecast)}{" "}
         </div>
-      ) : (
-        <p>No Data Yet</p>
       )}
     </div>
   );

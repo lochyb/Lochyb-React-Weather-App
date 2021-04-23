@@ -8,11 +8,12 @@ export const Today = (props) => {
       <h3>
         {props.place}, {props.country}
       </h3>
-      <img
+      <div className={styles.middle}><img
         src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
         alt="icon"
       />
       <p>{Math.round(props.currentTemp)}°C</p>
+      </div>
       <h5>{props.description}</h5>
     </div>
   );
