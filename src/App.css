@@ -1,14 +1,24 @@
+html{
+    box-sizing: border-box;
+}
+
 #root {
   display: grid;
   place-items: center;
   text-align: center;
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-  background-color: rgb(0, 86, 97);
   color: white;
-  background-image: url(./img/pexels-curioso-photography-288097-min.jpg);
+  background-color: rgb(0, 86, 97);
+  background-image: linear-gradient(
+      to top,
+      rgba(245, 246, 252, 0.8),
+      rgba(14, 10, 37, 0.99)
+    ),
+    url(./img/pexels-curioso-photography-288097-min.jpg);
 }
 
 /* ////////////////////////////////////////////// */
@@ -18,12 +28,49 @@ img {
   align-items: center;
   margin: auto;
 }
-.card-container{
+.card-container {
   margin: 1rem auto;
   display: flex;
   padding: 1rem;
-  overflow: auto;
+  overflow-x: auto;
   max-width: 80%;
   white-space: nowrap;
   text-align: center;
+  background-color: var(--mainBackground);
+  border-radius: 1rem;
+  cursor: auto;
+  color: black;
+  box-shadow: var(--shadow);
+}
+.card-container::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+.card-container::-webkit-scrollbar-thumb {
+  background: transparent;
+  width: 0;
+}
+
+.temp {
+  color: rgb(134, 133, 239);
+  font-weight: 600;
+  font-size: x-large;
+  margin: 0 auto;
+}
+.middle {
+  margin: auto;
+  min-width: 80%;
+}
+
+@media (min-width: 576px) {
+  .middle {
+    display: inline-flex;
+    margin: auto;
+    background:var(--mainBackground);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: var(--shadow);
+    padding:0 1rem;
+  }
+
 }

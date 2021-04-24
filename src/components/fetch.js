@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Card, Today } from "./card";
+import { Card, Today, Details } from "./card";
 import styles from "./fetch.module.css";
-
 
 export const SearchForm = () => {
   const [searchCity, setSearchCity] = useState("");
-  const [units, setUnits] = useState(null);
+  const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
 
@@ -40,54 +39,65 @@ export const SearchForm = () => {
 
   return (
     <div className={styles.wrap}>
-    <h1>Weather App</h1>
-     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(e) => setSearchCity(e.target.value)}
-          value={searchCity}
-          className={styles.searchTerm}
-          placeholder="Search City Here"
-        ></input>
-        <button
-        type="submit"
-        className={styles.searchButton}
-        >Search</button>
-        <br />
-        <input
-          name="degrees"
-          type="radio"
-          id="celsius"
-          value="metric"
-          onChange={(e) => setUnits(e.target.value)}
-          required="required"
-        ></input>
-        <label for="celsius">Celsius</label>
-        <input
-          name="degrees"
-          type="radio"
-          id="fahrenheit"
-          value="imperial"
-          onChange={(e) => setUnits(e.target.value)}
-          required="required"
-        ></input>
-        <label for="fahrenheit">Fahrenheit</label>
-      </form>
-</div>
-      {weather !== null && (<Today
-          place={weather.name}
-          country={weather.sys.country}
-          icon={weather.weather[0].icon}
-          currentTemp={weather.main.temp}
-          description={weather.weather[0].description}
-        />
-      )  
-      }
+      <h1>Weather App</h1>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            onChange={(e) => setSearchCity(e.target.value)}
+            value={searchCity}
+            className={styles.searchTerm}
+            placeholder="Search City Here"
+          ></input>
+          <button type="submit" className={styles.searchButton}>
+            Search
+          </button>
+          <br />
+          <input
+            name="degrees"
+            type="radio"
+            id="celsius"
+            value="metric"
+            onChange={(e) => setUnits(e.target.value)}
+            required="required"
+            checked="checked"
+          ></input>
+          <label for="celsius">Celsius</label>
+          <input
+            name="degrees"
+            type="radio"
+            id="fahrenheit"
+            value="imperial"
+            onChange={(e) => setUnits(e.target.value)}
+            required="required"
+          ></input>
+          <label for="fahrenheit">Fahrenheit</label>
+        </form>
+      </div>
+      {weather !== null && (
+        <div className="middle">
+          <Today
+            place={weather.name}
+            country={weather.sys.country}
+            icon={weather.weather[0].icon}
+            currentTemp={weather.main.temp}
+            description={weather.weather[0].description}
+          />
+          <Details
+            low={weather.main.temp_min}
+            high={weather.main.temp_max}
+            humidity={weather.main.humidity}
+            pressure={weather.main.pressure}
+            windSpeed={weather.wind.speed}
+            windDeg={weather.wind.deg}
+            units={units === "metric" ? "KM/H" : "MP/H"}
+            clouds={weather.clouds.all}
+          />
+        </div>
+      )}
       {forecast !== null && (
         <div className="card-container">
-          {" "}
-          {forecast.list.map(createForecast)}{" "}
+          {forecast.list.slice(0, 10).map(createForecast)}
         </div>
       )}
     </div>

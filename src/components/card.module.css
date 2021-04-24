@@ -1,39 +1,72 @@
 :root {
-  --mainBackground: rgb(99, 97, 112);
+  /* --mainBackground: rgb(99, 97, 112); */
+  --mainBackground: white;
 }
 .todayDiv {
   text-align: center;
   margin: 1rem auto;
-  background-color: var(--mainBackground);
+  background: var(--mainBackground);
   border-radius: 1rem;
   padding: 1rem 2rem;
   display: grid;
+  max-width: 80%;
+  color: black;
+  box-shadow: var(--shadow);
+}
+.detailsDiv {
+  text-align: center;
+  margin: 1rem auto;
+  background: var(--mainBackground);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: grid;
+  max-width: 80%;
+  color: black;
+  box-shadow: var(--shadow);
 }
 
-.todayDiv p {
+.middleDiv {
+  display: inline-flex;
+  font-size: xx-large;
+  font-weight: 600;
+  color: rgb(134, 133, 239);
+  margin: auto;
+}
+
+.details {
   display: inline-flex;
   font-size: 2rem;
   text-align: center;
 }
-
-.middle {
-  display: inline-flex;
-}
-
 /* Card Specific CSS */
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: transparent;
-}
 
 .card {
   place-content: center;
-  margin: 0.5rem;
-  border-radius: 1rem;
-  min-width: 10ch;
-  background-color: var(--mainBackground);
-  color: white;
+  min-width: 100px;
+  border-right: 1px grey solid;
+}
+
+.row {
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  min-width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+
+
+@media (min-width: 576px) {
+  .todayDiv{
+	box-shadow: none;
+}
+.detailsDiv{
+  box-shadow: none;
+}
+.row{
+    min-width: 30ch;
+}
 }
