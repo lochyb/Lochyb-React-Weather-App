@@ -59,9 +59,17 @@ export const Details = (props) => {
 };
 
 export const Card = (props) => {
+  function timeConverter(input) {
+    let a = new Date(input * 1000);
+    let hour = a.getHours();
+    hour = hour < 10 ? `0${hour}` : hour;
+    let time = `${hour}:00`;
+    return time;
+  }
+
   return (
     <div className={styles.card}>
-      <p>{props.dt.slice(11, 16)}</p>
+      <p>{timeConverter(props.dt)}</p>
       <p className="temp">{Math.round(props.temp)}°C</p>
       <img
         src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}

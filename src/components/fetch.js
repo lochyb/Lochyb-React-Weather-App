@@ -12,7 +12,7 @@ export const SearchForm = () => {
     return (
       <Card
         icon={hourlyForecast.weather[0].icon}
-        dt={hourlyForecast.dt_txt}
+        dt={hourlyForecast.dt}
         temp={hourlyForecast.main.temp}
         pop={hourlyForecast.pop}
         key={i}
