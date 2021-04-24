@@ -14,8 +14,7 @@ h1{
 }
 
 body {
-  color: white;
-  background-color: rgb(0, 86, 97);
+  color:gainsboro ;
   background-image: linear-gradient(
       to top,
       rgba(245, 246, 252, 0.8),

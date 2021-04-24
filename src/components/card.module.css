@@ -1,6 +1,6 @@
 :root {
   /* --mainBackground: rgb(99, 97, 112); */
-  --mainBackground: white;
+  --mainBackground: gainsboro;
 }
 .todayDiv {
   text-align: center;
