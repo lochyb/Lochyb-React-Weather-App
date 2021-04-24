@@ -15,9 +15,11 @@
   color: #9dbfaf;
 }
 
+
 .searchTerm:focus {
   color: var(--mainColor);
 }
+
 
 .searchButton {
   height: 36px;

@@ -5,8 +5,8 @@ import styles from "./fetch.module.css";
 export const SearchForm = () => {
   const [searchCity, setSearchCity] = useState("");
   const [units, setUnits] = useState("metric");
-  const [weather, setWeather] = useState(null);
-  const [forecast, setForecast] = useState(null);
+  const [weather, setWeather] = useState("");
+  const [forecast, setForecast] = useState("");
 
   function createForecast(hourlyForecast, i) {
     return (
@@ -34,8 +34,8 @@ export const SearchForm = () => {
     )
       .then((response) => response.json())
       .then((y) => setForecast(y))
-      .then(setSearchCity(""));
-  }
+      .then(setSearchCity(""))
+      }
 
   return (
     <div className={styles.wrap}>
@@ -48,6 +48,7 @@ export const SearchForm = () => {
             value={searchCity}
             className={styles.searchTerm}
             placeholder="Search City Here"
+          
           ></input>
           <button type="submit" className={styles.searchButton}>
             Search
@@ -74,7 +75,7 @@ export const SearchForm = () => {
           <label for="fahrenheit">Fahrenheit</label>
         </form>
       </div>
-      {weather !== null && (
+      {weather.cod === 200 ? (
         <div className="middle">
           <Today
             place={weather.name}
@@ -94,12 +95,12 @@ export const SearchForm = () => {
             clouds={weather.clouds.all}
           />
         </div>
-      )}
-      {forecast !== null && (
+      ): (<p></p>)}
+      {forecast.cod === "200" ? (
         <div className="card-container">
-          {forecast.list.slice(0, 10).map(createForecast)}
+          {forecast.list.map(createForecast)}
         </div>
-      )}
+      ): (<p></p>)}
         <footer>Created by <a href="https://lochyb.github.io/profile/">@Lochyb</a></footer> 
     </div>
   );
