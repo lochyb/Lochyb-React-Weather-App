@@ -100,6 +100,7 @@ export const SearchForm = () => {
           {forecast.list.slice(0, 10).map(createForecast)}
         </div>
       )}
+        <footer>Created by <a href="https://lochyb.github.io/profile/">@Lochyb</a></footer> 
     </div>
   );
 };

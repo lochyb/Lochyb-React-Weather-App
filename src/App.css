@@ -2,6 +2,9 @@ html{
     box-sizing: border-box;
 }
 
+h1{
+  font-size: clamp(2rem, 5vw, 15rem);
+}
 #root {
   display: grid;
   place-items: center;
@@ -62,6 +65,16 @@ img {
   min-width: 80%;
 }
 
+footer{
+  padding: 1rem;
+  width: 100%;
+}
+a{
+  color: white;
+}
+a:hover{
+  color: blue;
+}
 @media (min-width: 576px) {
   .middle {
     display: inline-flex;
